@@ -1,0 +1,501 @@
+﻿<pre>
+===========================================================================================
+ПРЕДВАРИТЕЛЬНО !!!
+===========================================================================================
+
+1) узнать последнюю версию kubectl
+https://storage.googleapis.com/kubernetes-release/release/stable.txt
+
+скачать нужную версию kubectl
+https://storage.googleapis.com/kubernetes-release/release/v1.22.0/bin/linux/amd64/kubectl
+
+-----------------------------
+curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.22.0/bin/linux/amd64/kubectl
+-----------------------------
+
+Сделайте двоичный файл kubectl исполняемым:
+
+chmod +x ./kubectl
+
+
+2) скачать последнюю версию minikube
+
+https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 
+-----------------------------
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && chmod +x minikube
+-----------------------------
+
+chmod +x minikube
+
+
+===========================================================================================
+===========================================================================================
+
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ cd Temp
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~/Temp</b></font>$ ls
+<font color="#55FF55"><b>kubectl</b></font>  <font color="#55FF55"><b>minikube</b></font>
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~/Temp</b></font>$ 
+
+
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~/Temp</b></font>$ chmod +x minikube
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~/Temp</b></font>$ chmod +x ./kubectl
+
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~/Temp</b></font>$ ls -alh
+итого 110M
+drwxrwxr-x  2 user user 4.0K Sep 19 05:29 <font color="#5555FF"><b>.</b></font>
+drwxr-xr-x 16 user user 4.0K Sep 19 05:29 <font color="#5555FF"><b>..</b></font>
+-rwxrwx--x  1 user user  45M Sep 16 17:23 <font color="#55FF55"><b>kubectl</b></font>
+-rwxrwx--x  1 user user  66M Sep 16 16:52 <font color="#55FF55"><b>minikube</b></font>
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~/Temp</b></font>$ 
+
+
+
+
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~/Temp</b></font>$ sudo mv ./kubectl /usr/local/bin/kubectl
+[sudo] пароль для user: 
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~/Temp</b></font>$ sudo mv minikube /usr/local/bin
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~/Temp</b></font>$ 
+
+
+
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~/Temp</b></font>$ minikube version
+minikube version: v1.23.0
+commit: 5931455374810b1bbeb222a9713ae2c756daee10
+
+
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~/Temp</b></font>$ kubectl version
+Client Version: version.Info{Major:&quot;1&quot;, Minor:&quot;22&quot;, GitVersion:&quot;v1.22.0&quot;, GitCommit:&quot;c2b5237ccd9c0f1d600d3072634ca66cefdf272f&quot;, GitTreeState:&quot;clean&quot;, BuildDate:&quot;2021-08-04T18:03:20Z&quot;, GoVersion:&quot;go1.16.6&quot;, Compiler:&quot;gc&quot;, Platform:&quot;linux/amd64&quot;}
+The connection to the server localhost:8080 was refused - did you specify the right host or port?
+
+
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~/Temp</b></font>$ kubectl version --client
+Client Version: version.Info{Major:&quot;1&quot;, Minor:&quot;22&quot;, GitVersion:&quot;v1.22.0&quot;, GitCommit:&quot;c2b5237ccd9c0f1d600d3072634ca66cefdf272f&quot;, GitTreeState:&quot;clean&quot;, BuildDate:&quot;2021-08-04T18:03:20Z&quot;, GoVersion:&quot;go1.16.6&quot;, Compiler:&quot;gc&quot;, Platform:&quot;linux/amd64&quot;}
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~/Temp</b></font>$ 
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~/Temp</b></font>$ 
+
+
+
+
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~/Temp</b></font>$ sudo -E minikube start --driver=none
+😄  minikube v1.23.0 on Ubuntu 20.04 (vbox/amd64)
+✨  Using the none driver based on user configuration
+
+⛔  Exiting due to RSRC_INSUFFICIENT_CORES: Requested cpu count 2 is greater than the available cpus of 1
+
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~/Temp</b></font>$ 
+
+
+===========================================================================================
+НУЖНО ВЫДАТЬ 2 ЯДРА МИНИМУМ ДЛЯ ВИРТУАЛКИ !!!
+===========================================================================================
+
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo -E minikube start --driver=none
+[sudo] пароль для user: 
+😄  minikube v1.23.0 on Ubuntu 20.04 (vbox/amd64)
+✨  Using the none driver based on user configuration
+
+❌  Exiting due to GUEST_MISSING_CONNTRACK: Sorry, Kubernetes 1.22.1 requires conntrack to be installed in root&apos;s path
+
+
+
+
+
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ apt-get install conntrack
+E: Не удалось открыть файл блокировки /var/lib/dpkg/lock-frontend - open (13: Отказано в доступе)
+E: Невозможно получить блокировку внешнего интерфейса dpkg (/var/lib/dpkg/lock-frontend); у вас есть права суперпользователя?
+
+
+
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo apt-get install conntrack
+Чтение списков пакетов… Готово
+Построение дерева зависимостей       
+Чтение информации о состоянии… Готово
+Следующий пакет устанавливался автоматически и больше не требуется:
+  libllvm11
+Для его удаления используйте «sudo apt autoremove».
+Предлагаемые пакеты:
+  nftables
+Следующие НОВЫЕ пакеты будут установлены:
+  conntrack
+Обновлено 0 пакетов, установлено 1 новых пакетов, для удаления отмечено 0 пакетов, и 0 пакетов не обновлено.
+Необходимо скачать 30.3 kB архивов.
+После данной операции объём занятого дискового пространства возрастёт на 104 kB.
+Пол:1 http://ru.archive.ubuntu.com/ubuntu focal/main amd64 conntrack amd64 1:1.4.5-2 [30.3 kB]
+Получено 30.3 kB за 0с (461 kB/s)
+Выбор ранее не выбранного пакета conntrack.
+(Чтение базы данных … на данный момент установлено 141525 файлов и каталогов.)
+Подготовка к распаковке …/conntrack_1%3a1.4.5-2_amd64.deb …
+Распаковывается conntrack (1:1.4.5-2) …
+Настраивается пакет conntrack (1:1.4.5-2) …
+Обрабатываются триггеры для man-db (2.9.1-1) …
+
+
+
+
+
+
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo -E minikube start --driver=none
+😄  minikube v1.23.0 on Ubuntu 20.04 (vbox/amd64)
+✨  Using the none driver based on user configuration
+👍  Starting control plane node minikube in cluster minikube
+🤹  Running on localhost (CPUs=2, Memory=3936MB, Disk=24566MB) ...
+🎉  minikube 1.23.1 is available! Download it: https://github.com/kubernetes/minikube/releases/tag/v1.23.1
+💡  To disable this notice, run: &apos;minikube config set WantUpdateNotification false&apos;
+
+ℹ️  OS release is Ubuntu 20.04.3 LTS
+🐳  Preparing Kubernetes v1.22.1 on Docker 20.10.8 ...
+    ▪ kubelet.resolv-conf=/run/systemd/resolve/resolv.conf
+    &gt; kubectl.sha256: 64 B / 64 B [--------------------------] 100.00% ? p/s 0s
+    &gt; kubeadm.sha256: 64 B / 64 B [--------------------------] 100.00% ? p/s 0s
+    &gt; kubelet.sha256: 64 B / 64 B [--------------------------] 100.00% ? p/s 0s
+    &gt; kubectl: 44.73 MiB / 44.73 MiB [---------------] 100.00% 1.60 MiB p/s 28s
+    &gt; kubeadm: 43.71 MiB / 43.71 MiB [---------------] 100.00% 1.56 MiB p/s 28s
+    &gt; kubelet: 146.25 MiB / 146.25 MiB [-------------] 100.00% 2.89 MiB p/s 51s
+
+    ▪ Generating certificates and keys ...
+    ▪ Booting up control plane ...
+    ▪ Configuring RBAC rules ...
+🤹  Configuring local host environment ...
+
+❗  The &apos;none&apos; driver is designed for experts who need to integrate with an existing VM
+💡  Most users should use the newer &apos;docker&apos; driver instead, which does not require root!
+📘  For more information, see: https://minikube.sigs.k8s.io/docs/reference/drivers/none/
+
+❗  kubectl and minikube configuration will be stored in /home/user
+❗  To use kubectl or minikube commands as your own user, you may need to relocate them. For example, to overwrite your own settings, run:
+
+    ▪ sudo mv /home/user/.kube /home/user/.minikube $HOME
+    ▪ sudo chown -R $USER $HOME/.kube $HOME/.minikube
+
+💡  This can also be done automatically by setting the env var CHANGE_MINIKUBE_NONE_USER=true
+🔎  Verifying Kubernetes components...
+    ▪ Using image gcr.io/k8s-minikube/storage-provisioner:v5
+🌟  Enabled addons: storage-provisioner, default-storageclass
+🏄  Done! kubectl is now configured to use &quot;minikube&quot; cluster and &quot;default&quot; namespace by default
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+
+
+
+
+
+
+
+
+
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ minikube status
+
+❌  Exiting due to HOST_HOME_PERMISSION: open /home/user/.minikube/profiles/minikube/config.json: permission denied
+💡  Suggestion: Your user lacks permissions to the minikube profile directory. Run: &apos;sudo chown -R $USER $HOME/.minikube; chmod -R u+wrx $HOME/.minikube&apos; to fix
+🍿  Related issue: https://github.com/kubernetes/minikube/issues/9165
+
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo minikube status
+[sudo] пароль для user: 
+🤷  Profile &quot;minikube&quot; not found. Run &quot;minikube profile list&quot; to view all profiles.
+👉  To start a cluster, run: &quot;minikube start&quot;
+
+
+
+
+
+
+
+
+
+
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo minikube profile list
+
+🤹  Exiting due to MK_USAGE_NO_PROFILE: No minikube profile was found. 
+💡  Suggestion: 
+
+    You can create one using &apos;minikube start&apos;.
+    
+
+
+
+
+
+
+
+
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo minikube config set driver none
+❗  These changes will take effect upon a minikube delete and then a minikube start
+
+
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+
+
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo minikube delete
+🙄  &quot;minikube&quot; profile does not exist, trying anyways.
+💀  Removed all traces of the &quot;minikube&quot; cluster.
+
+
+
+
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo minikube start
+😄  minikube v1.23.0 on Ubuntu 20.04 (vbox/amd64)
+✨  Using the none driver based on user configuration
+👍  Starting control plane node minikube in cluster minikube
+🤹  Running on localhost (CPUs=2, Memory=3936MB, Disk=24566MB) ...
+🎉  minikube 1.23.1 is available! Download it: https://github.com/kubernetes/minikube/releases/tag/v1.23.1
+💡  To disable this notice, run: &apos;minikube config set WantUpdateNotification false&apos;
+
+ℹ️  OS release is Ubuntu 20.04.3 LTS
+🐳  Preparing Kubernetes v1.22.1 on Docker 20.10.8 ...
+    ▪ kubelet.resolv-conf=/run/systemd/resolve/resolv.conf
+
+❌  Exiting due to HOST_JUJU_LOCK_PERMISSION: Failed kubeconfig update: writing kubeconfig: Error writing file /root/.kube/config: failed to acquire lock for /root/.kube/config: {Name:mk72a1487fd2da23da9e8181e16f352a6105bd56 Clock:{} Delay:500ms Timeout:1m0s Cancel:&lt;nil&gt;}: unable to open /tmp/juju-mk72a1487fd2da23da9e8181e16f352a6105bd56: permission denied
+💡  Suggestion: Run &apos;sudo sysctl fs.protected_regular=0&apos;, or try a driver which does not require root, such as &apos;--driver=docker&apos;
+🍿  Related issue: https://github.com/kubernetes/minikube/issues/6391
+
+
+
+
+
+
+
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo minikube delete
+🔄  Uninstalling Kubernetes v1.22.1 using kubeadm ...
+🔥  Deleting &quot;minikube&quot; in none ...
+🔥  Trying to delete invalid profile minikube
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+
+
+
+
+
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ chmod ugo+rwx ~/.kube/config
+chmod: изменение прав доступа для &apos;/home/user/.kube/config&apos;: Операция не позволена
+
+
+
+
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo chmod ugo+rwx ~/.kube/config
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+
+
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ ls -alh | grep kube
+drwxr-xr-x  2 root root 4.0K Sep 19 05:54 .<font color="#FF5555"><b>kube</b></font>
+drwxrwxr-x 10 user  user  4.0K Sep 19 05:53 .mini<font color="#FF5555"><b>kube</b></font>
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+
+
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo chown -R user ~/.kube
+
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ ls -alh | grep kube
+drwxr-xr-x  2 user  root 4.0K Sep 19 05:54 .<font color="#FF5555"><b>kube</b></font>
+drwxrwxr-x 10 user  user  4.0K Sep 19 05:53 .mini<font color="#FF5555"><b>kube</b></font>
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+
+
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ ls -alh ~/.kube/config
+-rwxrwxrwx 1 user root 815 Sep 19 05:54 <font color="#55FF55"><b>/home/user/.kube/config</b></font>
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+
+
+
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+
+
+
+
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo minikube start
+😄  minikube v1.23.0 on Ubuntu 20.04 (vbox/amd64)
+✨  Using the none driver based on user configuration
+👍  Starting control plane node minikube in cluster minikube
+
+❌  Exiting due to HOST_JUJU_LOCK_PERMISSION: Failed to save config: failed to acquire lock for /root/.minikube/profiles/minikube/config.json: {Name:mk270d1b5db5965f2dc9e9e25770a63417031943 Clock:{} Delay:500ms Timeout:1m0s Cancel:&lt;nil&gt;}: unable to open /tmp/juju-mk270d1b5db5965f2dc9e9e25770a63417031943: permission denied
+💡  Suggestion: Run &apos;sudo sysctl fs.protected_regular=0&apos;, or try a driver which does not require root, such as &apos;--driver=docker&apos;
+🍿  Related issue: https://github.com/kubernetes/minikube/issues/6391
+
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+
+
+
+
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ cat /etc/group | grep user
+adm:x:4:syslog,<font color="#FF5555"><b>user</b></font>
+cdrom:x:24:<font color="#FF5555"><b>user</b></font>
+sudo:x:27:<font color="#FF5555"><b>user</b></font>
+dip:x:30:<font color="#FF5555"><b>user</b></font>
+plugdev:x:46:<font color="#FF5555"><b>user</b></font>
+systemd-<font color="#FF5555"><b>user</b></font>esync:x:104:
+lxd:x:116:<font color="#FF5555"><b>user</b></font>
+<font color="#FF5555"><b>user</b></font>:x:1000:
+vboxsf:x:998:<font color="#FF5555"><b>user</b></font>
+
+
+
+
+
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo usermod -aG docker user
+[sudo] пароль для user: 
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+
+
+
+
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ cat /etc/group | grep user
+adm:x:4:syslog,<font color="#FF5555"><b>user</b></font>
+cdrom:x:24:<font color="#FF5555"><b>user</b></font>
+sudo:x:27:<font color="#FF5555"><b>user</b></font>
+dip:x:30:<font color="#FF5555"><b>user</b></font>
+plugdev:x:46:<font color="#FF5555"><b>user</b></font>
+systemd-<font color="#FF5555"><b>user</b></font>esync:x:104:
+lxd:x:116:<font color="#FF5555"><b>user</b></font>
+<font color="#FF5555"><b>user</b></font>:x:1000:
+vboxsf:x:998:<font color="#FF5555"><b>user</b></font>
+docker:x:997:<font color="#FF5555"><b>user</b></font>
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+
+
+
+
+
+
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo minikube start
+😄  minikube v1.23.0 on Ubuntu 20.04 (vbox/amd64)
+✨  Using the none driver based on user configuration
+👍  Starting control plane node minikube in cluster minikube
+
+❌  Exiting due to HOST_JUJU_LOCK_PERMISSION: Failed to save config: failed to acquire lock for /root/.minikube/profiles/minikube/config.json: {Name:mk270d1b5db5965f2dc9e9e25770a63417031943 Clock:{} Delay:500ms Timeout:1m0s Cancel:&lt;nil&gt;}: unable to open /tmp/juju-mk270d1b5db5965f2dc9e9e25770a63417031943: permission denied
+💡  Suggestion: Run &apos;sudo sysctl fs.protected_regular=0&apos;, or try a driver which does not require root, such as &apos;--driver=docker&apos;
+🍿  Related issue: https://github.com/kubernetes/minikube/issues/6391
+
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo minikube delete
+🙄  &quot;minikube&quot; profile does not exist, trying anyways.
+🔥  Trying to delete invalid profile minikube
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo minikube start
+😄  minikube v1.23.0 on Ubuntu 20.04 (vbox/amd64)
+✨  Using the none driver based on user configuration
+👍  Starting control plane node minikube in cluster minikube
+
+❌  Exiting due to HOST_JUJU_LOCK_PERMISSION: Failed to save config: failed to acquire lock for /root/.minikube/profiles/minikube/config.json: {Name:mk270d1b5db5965f2dc9e9e25770a63417031943 Clock:{} Delay:500ms Timeout:1m0s Cancel:&lt;nil&gt;}: unable to open /tmp/juju-mk270d1b5db5965f2dc9e9e25770a63417031943: permission denied
+💡  Suggestion: Run &apos;sudo sysctl fs.protected_regular=0&apos;, or try a driver which does not require root, such as &apos;--driver=docker&apos;
+🍿  Related issue: https://github.com/kubernetes/minikube/issues/6391
+
+
+
+
+
+
+
+
+
+
+
+
+===========================================================================================
+НУЖНО удалить (из под root) 
+
+в директории /tmp/
+все файлы :
+
+juju*
+minikube*
+
+===========================================================================================
+
+
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo minikube start
+😄  minikube v1.23.0 on Ubuntu 20.04 (vbox/amd64)
+✨  Using the none driver based on user configuration
+👍  Starting control plane node minikube in cluster minikube
+🤹  Running on localhost (CPUs=2, Memory=3936MB, Disk=24566MB) ...
+ℹ️  OS release is Ubuntu 20.04.3 LTS
+🐳  Preparing Kubernetes v1.22.1 on Docker 20.10.8 ...
+    ▪ kubelet.resolv-conf=/run/systemd/resolve/resolv.conf
+    &gt; kubeadm.sha256: 64 B / 64 B [--------------------------] 100.00% ? p/s 0s
+    &gt; kubelet.sha256: 64 B / 64 B [--------------------------] 100.00% ? p/s 0s
+    &gt; kubectl.sha256: 64 B / 64 B [--------------------------] 100.00% ? p/s 0s
+    &gt; kubeadm: 43.71 MiB / 43.71 MiB [---------------] 100.00% 1.46 MiB p/s 30s
+    &gt; kubectl: 44.73 MiB / 44.73 MiB [---------------] 100.00% 1.46 MiB p/s 31s
+    &gt; kubelet: 146.25 MiB / 146.25 MiB [-------------] 100.00% 2.64 MiB p/s 56s
+    ▪ Generating certificates and keys ...
+    ▪ Booting up control plane ...
+    ▪ Configuring RBAC rules ...
+🤹  Configuring local host environment ...
+
+❗  The &apos;none&apos; driver is designed for experts who need to integrate with an existing VM
+💡  Most users should use the newer &apos;docker&apos; driver instead, which does not require root!
+📘  For more information, see: https://minikube.sigs.k8s.io/docs/reference/drivers/none/
+
+❗  kubectl and minikube configuration will be stored in /root
+❗  To use kubectl or minikube commands as your own user, you may need to relocate them. For example, to overwrite your own settings, run:
+
+    ▪ sudo mv /root/.kube /root/.minikube $HOME
+    ▪ sudo chown -R $USER $HOME/.kube $HOME/.minikube
+
+💡  This can also be done automatically by setting the env var CHANGE_MINIKUBE_NONE_USER=true
+🔎  Verifying Kubernetes components...
+    ▪ Using image gcr.io/k8s-minikube/storage-provisioner:v5
+🌟  Enabled addons: storage-provisioner, default-storageclass
+🏄  Done! kubectl is now configured to use &quot;minikube&quot; cluster and &quot;default&quot; namespace by default
+
+
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+
+
+
+
+
+
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo minikube status
+minikube
+type: Control Plane
+host: Running
+kubelet: Running
+apiserver: Running
+kubeconfig: Configured
+
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>user@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+
+
+
+
+
+
+
+</pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
