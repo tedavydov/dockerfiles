@@ -1,0 +1,1006 @@
+﻿<pre>
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ kubectl create ns kubedoom
+error: unable to read client-key /home/tim/.minikube/profiles/minikube/client.key for minikube due to open /home/tim/.minikube/profiles/minikube/client.key: permission denied
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo kubectl create ns kubedoom
+[sudo] пароль для tim: 
+The connection to the server 10.0.2.15:8443 was refused - did you specify the right host or port?
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+
+
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo minikube status
+minikube
+type: Control Plane
+host: Stopped
+kubelet: Stopped
+apiserver: Stopped
+kubeconfig: Stopped
+
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo minikube start
+😄  minikube v1.23.0 on Ubuntu 20.04 (vbox/amd64)
+✨  Using the none driver based on existing profile
+👍  Starting control plane node minikube in cluster minikube
+🔄  Restarting existing none bare metal machine for &quot;minikube&quot; ...
+ℹ️  OS release is Ubuntu 20.04.3 LTS
+🐳  Preparing Kubernetes v1.22.1 on Docker 20.10.8 ...
+    ▪ kubelet.resolv-conf=/run/systemd/resolve/resolv.conf
+🤹  Configuring local host environment ...
+
+❗  The &apos;none&apos; driver is designed for experts who need to integrate with an existing VM
+💡  Most users should use the newer &apos;docker&apos; driver instead, which does not require root!
+📘  For more information, see: https://minikube.sigs.k8s.io/docs/reference/drivers/none/
+
+❗  kubectl and minikube configuration will be stored in /root
+❗  To use kubectl or minikube commands as your own user, you may need to relocate them. For example, to overwrite your own settings, run:
+
+    ▪ sudo mv /root/.kube /root/.minikube $HOME
+    ▪ sudo chown -R $USER $HOME/.kube $HOME/.minikube
+
+💡  This can also be done automatically by setting the env var CHANGE_MINIKUBE_NONE_USER=true
+🔎  Verifying Kubernetes components...
+    ▪ Using image gcr.io/k8s-minikube/storage-provisioner:v5
+🌟  Enabled addons: storage-provisioner, default-storageclass
+🏄  Done! kubectl is now configured to use &quot;minikube&quot; cluster and &quot;default&quot; namespace by default
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+
+
+
+
+
+
+
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo kubectl create ns kubedoom
+namespace/kubedoom created
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo kubectl get namespace
+[sudo] пароль для tim: 
+NAME              STATUS   AGE
+default           Active   164m
+kube-node-lease   Active   164m
+kube-public       Active   164m
+kube-system       Active   164m
+kubedoom          Active   127m
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+
+
+
+
+
+
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo kubectl aply deployment.yaml
+[sudo] пароль для tim: 
+Error: unknown command &quot;aply&quot; for &quot;kubectl&quot;
+
+Did you mean this?
+	apply
+
+Run &apos;kubectl --help&apos; for usage.
+
+
+
+
+
+
+
+
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ kubectl --help
+kubectl controls the Kubernetes cluster manager.
+
+ Find more information at: https://kubernetes.io/docs/reference/kubectl/overview/
+
+Basic Commands (Beginner):
+  create        Create a resource from a file or from stdin
+  expose        Take a replication controller, service, deployment or pod and expose it as a new Kubernetes service
+  run           Run a particular image on the cluster
+  set           Set specific features on objects
+
+Basic Commands (Intermediate):
+  explain       Get documentation for a resource
+  get           Display one or many resources
+  edit          Edit a resource on the server
+  delete        Delete resources by file names, stdin, resources and names, or by resources and label selector
+
+Deploy Commands:
+  rollout       Manage the rollout of a resource
+  scale         Set a new size for a deployment, replica set, or replication controller
+  autoscale     Auto-scale a deployment, replica set, stateful set, or replication controller
+
+Cluster Management Commands:
+  certificate   Modify certificate resources.
+  cluster-info  Display cluster information
+  top           Display resource (CPU/memory) usage
+  cordon        Mark node as unschedulable
+  uncordon      Mark node as schedulable
+  drain         Drain node in preparation for maintenance
+  taint         Update the taints on one or more nodes
+
+Troubleshooting and Debugging Commands:
+  describe      Show details of a specific resource or group of resources
+  logs          Print the logs for a container in a pod
+  attach        Attach to a running container
+  exec          Execute a command in a container
+  port-forward  Forward one or more local ports to a pod
+  proxy         Run a proxy to the Kubernetes API server
+  cp            Copy files and directories to and from containers
+  auth          Inspect authorization
+  debug         Create debugging sessions for troubleshooting workloads and nodes
+
+Advanced Commands:
+  diff          Diff the live version against a would-be applied version
+  apply         Apply a configuration to a resource by file name or stdin
+  patch         Update fields of a resource
+  replace       Replace a resource by file name or stdin
+  wait          Experimental: Wait for a specific condition on one or many resources
+  kustomize     Build a kustomization target from a directory or URL.
+
+Settings Commands:
+  label         Update the labels on a resource
+  annotate      Update the annotations on a resource
+  completion    Output shell completion code for the specified shell (bash or zsh)
+
+Other Commands:
+  api-resources Print the supported API resources on the server
+  api-versions  Print the supported API versions on the server, in the form of &quot;group/version&quot;
+  config        Modify kubeconfig files
+  plugin        Provides utilities for interacting with plugins
+  version       Print the client and server version information
+
+Usage:
+  kubectl [flags] [options]
+
+Use &quot;kubectl &lt;command&gt; --help&quot; for more information about a given command.
+Use &quot;kubectl options&quot; for a list of global command-line options (applies to all commands).
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo kubectl apply deployment.yaml
+error: must specify one of -f and -k
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ kubectl config set-context --current --namespace=kubedoom
+Context &quot;minikube&quot; modified.
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo kubectl apply -f deployment.yaml
+error: the path &quot;deployment.yaml&quot; does not exist
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+
+
+
+
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo kubectl apply -f deployment.yaml
+error: error validating &quot;deployment.yaml&quot;: 
+	error validating data: ValidationError(
+		Deployment.spec.template.spec.containers[0].ports[0].containerPort): 
+			invalid type for io.k8s.api.core.v1.ContainerPort.containerPort: 
+				got &quot;string&quot;, 
+				expected &quot;integer&quot;; 
+				if you choose to ignore these errors, 
+				turn validation off with --validate=false
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+
+
+
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo kubectl apply -f deployment.yaml
+deployment.apps/kubedoom created
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+
+
+
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo minikube status
+minikube
+type: Control Plane
+host: Running
+kubelet: Running
+apiserver: Running
+kubeconfig: Configured
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+
+
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ minikube service gateway --url -n msvc-ns
+
+❌  Exiting due to HOST_HOME_PERMISSION: open /home/tim/.minikube/profiles/minikube/config.json: permission denied
+💡  Suggestion: Your user lacks permissions to the minikube profile directory. Run: &apos;sudo chown -R $USER $HOME/.minikube; chmod -R u+wrx $HOME/.minikube&apos; to fix
+🍿  Related issue: https://github.com/kubernetes/minikube/issues/9165
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo minikube service gateway --url -n msvc-ns
+
+❌  Exiting due to SVC_NOT_FOUND: Service &apos;gateway&apos; was not found in &apos;msvc-ns&apos; namespace.
+You may select another namespace by using &apos;minikube service gateway -n &lt;namespace&gt;&apos;. Or list out all the services using &apos;minikube service list&apos;
+
+
+
+
+
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo minikube service kubedoom --url -n kubedoom
+
+❌  Exiting due to SVC_NOT_FOUND: Service &apos;kubedoom&apos; was not found in &apos;kubedoom&apos; namespace.
+You may select another namespace by using &apos;minikube service kubedoom -n &lt;namespace&gt;&apos;. Or list out all the services using &apos;minikube service list&apos;
+
+
+
+
+
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo minikube service list
+|-------------|------------|--------------|-----|
+|  NAMESPACE  |    NAME    | TARGET PORT  | URL |
+|-------------|------------|--------------|-----|
+| default     | kubernetes | No node port |
+| kube-system | kube-dns   | No node port |
+|-------------|------------|--------------|-----|
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo kubectl get namespace
+NAME              STATUS   AGE
+default           Active   3h46m
+kube-node-lease   Active   3h46m
+kube-public       Active   3h46m
+kube-system       Active   3h46m
+kubedoom          Active   3h9m
+
+
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo kubectl apply -f deployment.yaml
+deployment.apps/kubedoom unchanged
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo kubectl apply -f deployment.yaml
+deployment.apps/kubedoom unchanged
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ vncviewer viewer localhost:5900
+
+Команда «vncviewer» не найдена. Возможно, вы имели в виду:
+
+  command &apos;gvncviewer&apos; from deb gvncviewer (1.0.0-1build1)
+  command &apos;jvncviewer&apos; from deb vnc-java (3.3.3r2-9)
+
+Try: sudo apt install &lt;deb name&gt;
+
+
+
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo apt install vncviewer
+Чтение списков пакетов… Готово
+Построение дерева зависимостей       
+Чтение информации о состоянии… Готово
+Пакет vncviewer — виртуальный, его функции предоставляются пакетами:
+  xtightvncviewer 1.3.10-0ubuntu5
+  tigervnc-viewer 1.10.1+dfsg-3
+Вы должны явно указать, какой именно вы хотите установить.
+
+<font color="#FF5555"><b>E: </b></font>Для пакета «vncviewer» не найден кандидат на установку
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+
+
+
+======================================================================================
+
+СКАЧИВАЕМ VNC® Viewer
+
+https://www.realvnc.com/en/connect/download/viewer/linux/
+
+SHA-256: d0d75642794241681962c28bf557a990fa76d35328954ed5d3fa505447ed312e
+
+в директорию ~/tmp
+
+и устанавливаем : 
+======================================================================================
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ cd tmp
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~/tmp</b></font>$ sudo dpkg -i VNC-Viewer-x64.deb
+[sudo] пароль для tim: 
+Выбор ранее не выбранного пакета realvnc-vnc-viewer.
+(Чтение базы данных … на данный момент установлено 141530 файлов и каталогов.)
+Подготовка к распаковке VNC-Viewer-x64.deb …
+Распаковывается realvnc-vnc-viewer (6.21.406.44671) …
+Настраивается пакет realvnc-vnc-viewer (6.21.406.44671) …
+Обрабатываются триггеры для shared-mime-info (1.15-1) …
+Обрабатываются триггеры для man-db (2.9.1-1) …
+Обрабатываются триггеры для gnome-menus (3.36.0-1ubuntu1) …
+Обрабатываются триггеры для desktop-file-utils (0.24-1ubuntu3) …
+Обрабатываются триггеры для mime-support (3.64ubuntu1) …
+Обрабатываются триггеры для hicolor-icon-theme (0.17-2) …
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~/tmp</b></font>$ sudo apt install -f
+Чтение списков пакетов… Готово
+Построение дерева зависимостей       
+Чтение информации о состоянии… Готово
+Следующий пакет устанавливался автоматически и больше не требуется:
+  libllvm11
+Для его удаления используйте «sudo apt autoremove».
+Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 0 пакетов, и 0 пакетов не обновлено.
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~/tmp</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~/tmp</b></font>$ 
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~/tmp</b></font>$ vncviewer
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~/tmp</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~/tmp</b></font>$ 
+
+
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~/tmp</b></font>$ vncviewer viewer localhost:5900
+Bad argument &apos;localhost:5900&apos;.
+
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~/tmp</b></font>$ vncviewer viewer localhost:5901
+Bad argument &apos;localhost:5901&apos;.
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~/tmp</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~/tmp</b></font>$ 
+
+
+
+
+======================================================================================
+пробуем запустить докер контейнер 
+как показано на сайте 
+https://github.com/storax/kubedoom 
+======================================================================================
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~/tmp</b></font>$ docker run -p5901:5900 \
+&gt;   --net=host \
+&gt;   -v ~/.kube:/root/.kube \
+&gt;   --rm -it --name kubedoom \
+&gt;   storaxdev/kubedoom:0.5.0
+Unable to find image &apos;storaxdev/kubedoom:0.5.0&apos; locally
+0.5.0: Pulling from storaxdev/kubedoom
+5cb735c93c49: Pull complete 
+7431e3c410bb: Pull complete 
+3fb7a4dd012f: Pull complete 
+74cc91b10ec6: Pull complete 
+e4e559b522d8: Pull complete 
+4effd51298ec: Pull complete 
+fb5d82ffb36c: Pull complete 
+b74eb5d94c54: Pull complete 
+4ca0dfb29465: Pull complete 
+2c1267994c71: Pull complete 
+Digest: sha256:88dfe1b5430a678a8f399593fd9b2d256c86b29518a6924965fe1f1758da8cca
+Status: Downloaded newer image for storaxdev/kubedoom:0.5.0
+WARNING: Published ports are discarded when using host network mode
+2021/09/19 11:09:53 Create virtual display
+2021/09/19 11:09:55 You can now connect to it with a VNC viewer at port 5900
+2021/09/19 11:09:55 Trying to start DOOM ...
+19/09/2021 11:09:55 -usepw: found /root/.vnc/passwd
+19/09/2021 11:09:55 x11vnc version: 0.9.16 lastmod: 2019-01-05  pid: 20
+19/09/2021 11:09:55 Using X display :99
+19/09/2021 11:09:55 rootwin: 0x50e reswin: 0x200001 dpy: 0x195970c0
+19/09/2021 11:09:55 
+19/09/2021 11:09:55 ------------------ USEFUL INFORMATION ------------------
+                        psdoom 2012.02.05-1.6.0
+Z_Init: Init zone memory allocation daemon. 
+zone memory: 0x7fca0a5e6010, 1000000 allocated for zone
+DEH_Init: Init Dehacked support.
+V_Init: allocate screens.
+M_LoadDefaults: Load system defaults.
+saving config in /root/.psdoom/default.cfg
+W_Init: Init WADfiles.
+ adding doom1.wad
+===========================================================================
+                            DOOM Shareware
+===========================================================================
+ psdoom is free software, covered by the GNU General Public
+ License.  There is NO warranty; not even for MERCHANTABILITY or FITNESS
+ FOR A PARTICULAR PURPOSE. You are welcome to change and distribute
+ copies under certain conditions. See the source for more information.
+===========================================================================
+M_Init: Init miscellaneous info.
+R_Init: Init DOOM refresh daemon - [...................]
+P_Init: Init Playloop state.
+I_Init: Setting up machine state.
+NET_Init: Init network subsystem.
+S_Init: Setting up sound.
+ALSA lib confmisc.c:767:(parse_card) cannot find card &apos;0&apos;
+ALSA lib conf.c:4743:(_snd_config_evaluate) function snd_func_card_driver returned error: No such file or directory
+ALSA lib confmisc.c:392:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:4743:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1246:(snd_func_refer) error evaluating name
+ALSA lib conf.c:4743:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5231:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2660:(snd_pcm_open_noupdate) Unknown PCM default
+Error initializing SDL_mixer: No available audio device
+Error initializing SDL_mixer: 
+D_CheckNetGame: Checking network game status.
+startskill 2  deathmatch: 0  startmap: 1  startepisode: -3
+player 1 of 1 (1 nodes)
+Emulating the behavior of the &apos;Doom 1.9&apos; executable.
+HU_Init: Setting up heads up display.
+ST_Init: Init status bar.
+***** setup level: *****
+19/09/2021 11:09:55 X DAMAGE available on display, using it for polling hints.
+19/09/2021 11:09:55   To disable this behavior use: &apos;-noxdamage&apos;
+19/09/2021 11:09:55 
+19/09/2021 11:09:55   Most compositing window managers like &apos;compiz&apos; or &apos;beryl&apos;
+19/09/2021 11:09:55   cause X DAMAGE to fail, and so you may not see any screen
+19/09/2021 11:09:55   updates via VNC.  Either disable &apos;compiz&apos; (recommended) or
+19/09/2021 11:09:55   supply the x11vnc &apos;-noxdamage&apos; command line option.
+19/09/2021 11:09:55 
+19/09/2021 11:09:55 Wireframing: -wireframe mode is in effect for window moves.
+19/09/2021 11:09:55   If this yields undesired behavior (poor response, painting
+19/09/2021 11:09:55   errors, etc) it may be disabled:
+19/09/2021 11:09:55    - use &apos;-nowf&apos; to disable wireframing completely.
+19/09/2021 11:09:55    - use &apos;-nowcr&apos; to disable the Copy Rectangle after the
+19/09/2021 11:09:55      moved window is released in the new position.
+19/09/2021 11:09:55   Also see the -help entry for tuning parameters.
+19/09/2021 11:09:55   You can press 3 Alt_L&apos;s (Left &quot;Alt&quot; key) in a row to 
+19/09/2021 11:09:55   repaint the screen, also see the -fixscreen option for
+19/09/2021 11:09:55   periodic repaints.
+19/09/2021 11:09:55   Note: &apos;-scale&apos; is on and this can cause more problems.
+19/09/2021 11:09:55 
+19/09/2021 11:09:55 XFIXES available on display, resetting cursor mode
+19/09/2021 11:09:55   to: &apos;-cursor most&apos;.
+19/09/2021 11:09:55   to disable this behavior use: &apos;-cursor arrow&apos;
+19/09/2021 11:09:55   or &apos;-noxfixes&apos;.
+19/09/2021 11:09:55 using XFIXES for cursor drawing.
+19/09/2021 11:09:55 GrabServer control via XTEST.
+19/09/2021 11:09:55 
+19/09/2021 11:09:55 Scroll Detection: -scrollcopyrect mode is in effect to
+19/09/2021 11:09:55   use RECORD extension to try to detect scrolling windows
+19/09/2021 11:09:55   (induced by either user keystroke or mouse input).
+19/09/2021 11:09:55   If this yields undesired behavior (poor response, painting
+19/09/2021 11:09:55   errors, etc) it may be disabled via: &apos;-noscr&apos;
+19/09/2021 11:09:55   Also see the -help entry for tuning parameters.
+19/09/2021 11:09:55   You can press 3 Alt_L&apos;s (Left &quot;Alt&quot; key) in a row to 
+19/09/2021 11:09:55   repaint the screen, also see the -fixscreen option for
+19/09/2021 11:09:55   periodic repaints.
+19/09/2021 11:09:55   Note: &apos;-scale&apos; is on and this can cause more problems.
+19/09/2021 11:09:55 
+19/09/2021 11:09:55 XKEYBOARD: number of keysyms per keycode 7 is greater
+19/09/2021 11:09:55   than 4 and 51 keysyms are mapped above 4.
+19/09/2021 11:09:55   Automatically switching to -xkb mode.
+19/09/2021 11:09:55   If this makes the key mapping worse you can
+19/09/2021 11:09:55   disable it with the &quot;-noxkb&quot; option.
+19/09/2021 11:09:55   Also, remember &quot;-remap DEAD&quot; for accenting characters.
+19/09/2021 11:09:55 
+19/09/2021 11:09:55 X FBPM extension not supported.
+Xlib:  extension &quot;DPMS&quot; missing on display &quot;:99&quot;.
+19/09/2021 11:09:55 X display is not capable of DPMS.
+19/09/2021 11:09:55 --------------------------------------------------------
+19/09/2021 11:09:55 
+19/09/2021 11:09:55 Default visual ID: 0x21
+19/09/2021 11:09:55 Read initial data from X display into framebuffer.
+19/09/2021 11:09:55 initialize_screen: fb_depth/fb_bpp/fb_Bpl 24/32/2560
+19/09/2021 11:09:55 scaling disabled for factor 1.000000 1.000000
+19/09/2021 11:09:55 
+19/09/2021 11:09:55 X display :99 is 32bpp depth=24 true color
+19/09/2021 11:09:55 
+19/09/2021 11:09:55 Autoprobing TCP port 
+19/09/2021 11:09:55 Autoprobing selected TCP port 5900
+19/09/2021 11:09:55 Autoprobing TCP6 port 
+19/09/2021 11:09:55 Autoprobing selected TCP6 port 5900
+19/09/2021 11:09:55 listen6: bind: Address already in use
+19/09/2021 11:09:55 Not listening on IPv6 interface.
+19/09/2021 11:09:55 
+19/09/2021 11:09:55 Xinerama is present and active (e.g. multi-head).
+19/09/2021 11:09:55 Xinerama: number of sub-screens: 1
+19/09/2021 11:09:55 Xinerama: no blackouts needed (only one sub-screen)
+19/09/2021 11:09:55 
+19/09/2021 11:09:55 fb read rate: 1935 MB/sec
+19/09/2021 11:09:55 fast read: reset -wait  ms to: 10
+19/09/2021 11:09:55 fast read: reset -defer ms to: 10
+19/09/2021 11:09:55 The X server says there are 10 mouse buttons.
+19/09/2021 11:09:55 screen setup finished.
+19/09/2021 11:09:55 
+
+The VNC desktop is:      ub20srv:0
+PORT=5900
+
+******************************************************************************
+Have you tried the x11vnc &apos;-ncache&apos; VNC client-side pixel caching feature yet?
+
+The scheme stores pixel data offscreen on the VNC viewer side for faster
+retrieval.  It should work with any VNC viewer.  Try it by running:
+
+    x11vnc -ncache 10 ...
+
+One can also add -ncache_cr for smooth &apos;copyrect&apos; window motion.
+More info: http://www.karlrunge.com/x11vnc/faq.html#faq-client-caching
+
+Error in configuration: 
+* unable to read client-cert /home/tim/.minikube/profiles/minikube/client.crt for minikube due to open /home/tim/.minikube/profiles/minikube/client.crt: no such file or directory
+* unable to read client-key /home/tim/.minikube/profiles/minikube/client.key for minikube due to open /home/tim/.minikube/profiles/minikube/client.key: no such file or directory
+* unable to read certificate-authority /home/tim/.minikube/ca.crt for minikube due to open /home/tim/.minikube/ca.crt: no such file or directory
+2021/09/19 11:09:55 The following command failed: &quot;[kubectl get pods -A -o go-template --template={{range .items}}{{.metadata.namespace}}/{{.metadata.name}} {{end}}]&quot;
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~/tmp</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~/tmp</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~/tmp</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~/tmp</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~/tmp</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~/tmp</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~/tmp</b></font>$ 
+
+
+
+
+
+
+
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~/tmp</b></font>$ docker ps
+CONTAINER ID   IMAGE                  COMMAND                  CREATED       STATUS       PORTS     NAMES
+3a767a6bf793   8d147537fb7d           &quot;/coredns -conf /etc…&quot;   4 hours ago   Up 4 hours             k8s_coredns_coredns-78fcd69978-dgc7d_kube-system_b53422c3-fcfd-4aa2-b2db-6fa557268e9d_2
+9407f1a83ac9   6e38f40d628d           &quot;/storage-provisioner&quot;   4 hours ago   Up 4 hours             k8s_storage-provisioner_storage-provisioner_kube-system_fd29a383-275d-429c-a15a-ebe1c61f1eee_3
+da5d0806588e   k8s.gcr.io/pause:3.5   &quot;/pause&quot;                 4 hours ago   Up 4 hours             k8s_POD_coredns-78fcd69978-dgc7d_kube-system_b53422c3-fcfd-4aa2-b2db-6fa557268e9d_2
+5405d93e8837   k8s.gcr.io/pause:3.5   &quot;/pause&quot;                 4 hours ago   Up 4 hours             k8s_POD_storage-provisioner_kube-system_fd29a383-275d-429c-a15a-ebe1c61f1eee_2
+82c7af390f35   36c4ebbc9d97           &quot;/usr/local/bin/kube…&quot;   4 hours ago   Up 4 hours             k8s_kube-proxy_kube-proxy-8scgp_kube-system_3a090d99-e0aa-47f7-b63c-537f55a8a8df_2
+f660573cf7a3   k8s.gcr.io/pause:3.5   &quot;/pause&quot;                 4 hours ago   Up 4 hours             k8s_POD_kube-proxy-8scgp_kube-system_3a090d99-e0aa-47f7-b63c-537f55a8a8df_2
+d2bc656c6c79   004811815584           &quot;etcd --advertise-cl…&quot;   4 hours ago   Up 4 hours             k8s_etcd_etcd-ub20srv_kube-system_6eb31a23f1169ae19720717c9ed87c4d_4
+adf7da6c5b50   aca5ededae9c           &quot;kube-scheduler --au…&quot;   4 hours ago   Up 4 hours             k8s_kube-scheduler_kube-scheduler-ub20srv_kube-system_a56c6c2b1df4be2c0587a2d4348d053a_4
+6fbeabe73176   f30469a2491a           &quot;kube-apiserver --ad…&quot;   4 hours ago   Up 4 hours             k8s_kube-apiserver_kube-apiserver-ub20srv_kube-system_a0661f6ffb8f86039073b7b3244d4b18_4
+e8823d0c8faa   6e002eb89a88           &quot;kube-controller-man…&quot;   4 hours ago   Up 4 hours             k8s_kube-controller-manager_kube-controller-manager-ub20srv_kube-system_29af38d6e38b1a1197a1215d4cc8b7b4_4
+ee613710f8e7   k8s.gcr.io/pause:3.5   &quot;/pause&quot;                 4 hours ago   Up 4 hours             k8s_POD_etcd-ub20srv_kube-system_6eb31a23f1169ae19720717c9ed87c4d_2
+4f3074765c5d   k8s.gcr.io/pause:3.5   &quot;/pause&quot;                 4 hours ago   Up 4 hours             k8s_POD_kube-apiserver-ub20srv_kube-system_a0661f6ffb8f86039073b7b3244d4b18_2
+5c043acc241e   k8s.gcr.io/pause:3.5   &quot;/pause&quot;                 4 hours ago   Up 4 hours             k8s_POD_kube-controller-manager-ub20srv_kube-system_29af38d6e38b1a1197a1215d4cc8b7b4_2
+8a8bb10244a4   k8s.gcr.io/pause:3.5   &quot;/pause&quot;                 4 hours ago   Up 4 hours             k8s_POD_kube-scheduler-ub20srv_kube-system_a56c6c2b1df4be2c0587a2d4348d053a_2
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~/tmp</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~/tmp</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~/tmp</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~/tmp</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~/tmp</b></font>$ 
+
+
+
+
+
+
+
+
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~/tmp</b></font>$ vncviewer viewer localhost:5901
+Bad argument &apos;localhost:5901&apos;.
+
+
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~/tmp</b></font>$ sudo minikube service list
+|-------------|------------|--------------|-----|
+|  NAMESPACE  |    NAME    | TARGET PORT  | URL |
+|-------------|------------|--------------|-----|
+| default     | kubernetes | No node port |
+| kube-system | kube-dns   | No node port |
+|-------------|------------|--------------|-----|
+
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~/tmp</b></font>$ sudo minikube status
+minikube
+type: Control Plane
+host: Running
+kubelet: Running
+apiserver: Running
+kubeconfig: Configured
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~/tmp</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~/tmp</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~/tmp</b></font>$ 
+
+
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~/tmp</b></font>$ sudo kubectl get namespace
+NAME              STATUS   AGE
+default           Active   4h20m
+kube-node-lease   Active   4h20m
+kube-public       Active   4h20m
+kube-system       Active   4h20m
+kubedoom          Active   3h44m
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~/tmp</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~/tmp</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~/tmp</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~/tmp</b></font>$ 
+
+
+
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~/tmp</b></font>$ sudo kubectl apply -f deployment.yaml
+error: the path &quot;deployment.yaml&quot; does not exist
+
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~/tmp</b></font>$ cd ~
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo kubectl apply -f deployment.yaml
+deployment.apps/kubedoom unchanged
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+
+
+
+
+
+
+
+
+
+
+
+======================================================================================
+пробуем перезапустить миникуб 
+======================================================================================
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo minikube delete
+🔄  Uninstalling Kubernetes v1.22.1 using kubeadm ...
+🔥  Deleting &quot;minikube&quot; in none ...
+🔥  Trying to delete invalid profile minikube
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo minikube status
+🤷  Profile &quot;minikube&quot; not found. Run &quot;minikube profile list&quot; to view all profiles.
+👉  To start a cluster, run: &quot;minikube start&quot;
+
+
+
+
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo minikube start
+😄  minikube v1.23.0 on Ubuntu 20.04 (vbox/amd64)
+✨  Using the none driver based on user configuration
+👍  Starting control plane node minikube in cluster minikube
+🤦  StartHost failed, but will try again: boot lock: unable to open /tmp/juju-mkc8ab01ad3ea83211c505c81a7ee49a8e3ecb89: permission denied
+😿  Failed to start none bare metal machine. Running &quot;minikube delete&quot; may fix it: boot lock: unable to open /tmp/juju-mkc8ab01ad3ea83211c505c81a7ee49a8e3ecb89: permission denied
+
+❌  Exiting due to HOST_JUJU_LOCK_PERMISSION: Failed to start host: boot lock: unable to open /tmp/juju-mkc8ab01ad3ea83211c505c81a7ee49a8e3ecb89: permission denied
+💡  Suggestion: Run &apos;sudo sysctl fs.protected_regular=0&apos;, or try a driver which does not require root, such as &apos;--driver=docker&apos;
+🍿  Related issue: https://github.com/kubernetes/minikube/issues/6391
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+
+
+
+
+======================================================================================
+чистим из под ROOT директорию /tmp/
+от всех файлов вида : 
+juju*
+minikube*
+
+и пробуем снова .. 
+======================================================================================
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo minikube start
+😄  minikube v1.23.0 on Ubuntu 20.04 (vbox/amd64)
+✨  Using the none driver based on existing profile
+👍  Starting control plane node minikube in cluster minikube
+🤹  Running on localhost (CPUs=2, Memory=3936MB, Disk=24566MB) ...
+ℹ️  OS release is Ubuntu 20.04.3 LTS
+🐳  Preparing Kubernetes v1.22.1 on Docker 20.10.8 ...
+    ▪ kubelet.resolv-conf=/run/systemd/resolve/resolv.conf
+    ▪ Generating certificates and keys ...
+    ▪ Booting up control plane ...
+    ▪ Configuring RBAC rules ...
+🤹  Configuring local host environment ...
+
+❗  The &apos;none&apos; driver is designed for experts who need to integrate with an existing VM
+💡  Most users should use the newer &apos;docker&apos; driver instead, which does not require root!
+📘  For more information, see: https://minikube.sigs.k8s.io/docs/reference/drivers/none/
+
+❗  kubectl and minikube configuration will be stored in /root
+❗  To use kubectl or minikube commands as your own user, you may need to relocate them. For example, to overwrite your own settings, run:
+
+    ▪ sudo mv /root/.kube /root/.minikube $HOME
+    ▪ sudo chown -R $USER $HOME/.kube $HOME/.minikube
+
+💡  This can also be done automatically by setting the env var CHANGE_MINIKUBE_NONE_USER=true
+🔎  Verifying Kubernetes components...
+    ▪ Using image gcr.io/k8s-minikube/storage-provisioner:v5
+🌟  Enabled addons: storage-provisioner, default-storageclass
+🏄  Done! kubectl is now configured to use &quot;minikube&quot; cluster and &quot;default&quot; namespace by default
+
+
+
+
+
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo minikube status
+minikube
+type: Control Plane
+host: Running
+kubelet: Running
+apiserver: Running
+kubeconfig: Configured
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo kubectl get namespace
+NAME              STATUS   AGE
+default           Active   18s
+kube-node-lease   Active   19s
+kube-public       Active   19s
+kube-system       Active   19s
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo kubectl create ns kubedoom
+namespace/kubedoom created
+
+
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo kubectl get namespace
+NAME              STATUS   AGE
+default           Active   72s
+kube-node-lease   Active   73s
+kube-public       Active   73s
+kube-system       Active   73s
+kubedoom          Active   4s
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+
+
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo kubectl apply -f deployment.yaml
+deployment.apps/kubedoom created
+
+
+
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+
+
+
+
+
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ docker ps
+CONTAINER ID   IMAGE                  COMMAND                  CREATED              STATUS              PORTS     NAMES
+4b8e62a55e4b   36c4ebbc9d97           &quot;/usr/local/bin/kube…&quot;   About a minute ago   Up About a minute             k8s_kube-proxy_kube-proxy-nlsw4_kube-system_8b9bf64c-7ed6-48b7-9b77-a8b6cde69270_0
+1906af138548   6e38f40d628d           &quot;/storage-provisioner&quot;   About a minute ago   Up About a minute             k8s_storage-provisioner_storage-provisioner_kube-system_0885783a-a38b-4c0a-93b8-44fe20c4f465_0
+cad46267aaad   k8s.gcr.io/pause:3.5   &quot;/pause&quot;                 About a minute ago   Up About a minute             k8s_POD_kube-proxy-nlsw4_kube-system_8b9bf64c-7ed6-48b7-9b77-a8b6cde69270_0
+f732963dbca6   8d147537fb7d           &quot;/coredns -conf /etc…&quot;   About a minute ago   Up About a minute             k8s_coredns_coredns-78fcd69978-bk8fz_kube-system_9ea961cb-339a-4b2d-b9b6-e9c36dfad9ba_0
+9d2a866da916   k8s.gcr.io/pause:3.5   &quot;/pause&quot;                 About a minute ago   Up About a minute             k8s_POD_storage-provisioner_kube-system_0885783a-a38b-4c0a-93b8-44fe20c4f465_0
+dd63bb91ad38   k8s.gcr.io/pause:3.5   &quot;/pause&quot;                 About a minute ago   Up About a minute             k8s_POD_coredns-78fcd69978-bk8fz_kube-system_9ea961cb-339a-4b2d-b9b6-e9c36dfad9ba_0
+d920f30e51aa   f30469a2491a           &quot;kube-apiserver --ad…&quot;   About a minute ago   Up About a minute             k8s_kube-apiserver_kube-apiserver-ub20srv_kube-system_a0661f6ffb8f86039073b7b3244d4b18_5
+89105f29a3dc   004811815584           &quot;etcd --advertise-cl…&quot;   About a minute ago   Up About a minute             k8s_etcd_etcd-ub20srv_kube-system_6eb31a23f1169ae19720717c9ed87c4d_5
+9ab856d93614   6e002eb89a88           &quot;kube-controller-man…&quot;   About a minute ago   Up About a minute             k8s_kube-controller-manager_kube-controller-manager-ub20srv_kube-system_29af38d6e38b1a1197a1215d4cc8b7b4_5
+765bcb7426ad   aca5ededae9c           &quot;kube-scheduler --au…&quot;   About a minute ago   Up About a minute             k8s_kube-scheduler_kube-scheduler-ub20srv_kube-system_a56c6c2b1df4be2c0587a2d4348d053a_5
+6e9e241af89c   k8s.gcr.io/pause:3.5   &quot;/pause&quot;                 About a minute ago   Up About a minute             k8s_POD_kube-scheduler-ub20srv_kube-system_a56c6c2b1df4be2c0587a2d4348d053a_0
+ddd6a53c3f3a   k8s.gcr.io/pause:3.5   &quot;/pause&quot;                 About a minute ago   Up About a minute             k8s_POD_kube-controller-manager-ub20srv_kube-system_29af38d6e38b1a1197a1215d4cc8b7b4_0
+f2a3565231c1   k8s.gcr.io/pause:3.5   &quot;/pause&quot;                 About a minute ago   Up About a minute             k8s_POD_kube-apiserver-ub20srv_kube-system_a0661f6ffb8f86039073b7b3244d4b18_0
+8c92d6fa66b3   k8s.gcr.io/pause:3.5   &quot;/pause&quot;                 About a minute ago   Up About a minute             k8s_POD_etcd-ub20srv_kube-system_6eb31a23f1169ae19720717c9ed87c4d_0
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+
+
+
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo minikube status
+minikube
+type: Control Plane
+host: Running
+kubelet: Running
+apiserver: Running
+kubeconfig: Configured
+
+
+
+
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ vncviewer viewer localhost:5901
+Bad argument &apos;localhost:5901&apos;.
+
+
+
+
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ sudo minikube service kubedoom --url -n kubedoom
+
+❌  Exiting due to SVC_NOT_FOUND: Service &apos;kubedoom&apos; was not found in &apos;kubedoom&apos; namespace.
+You may select another namespace by using &apos;minikube service kubedoom -n &lt;namespace&gt;&apos;. Or list out all the services using &apos;minikube service list&apos;
+
+
+
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ vncviewer viewer localhost:5901
+Bad argument &apos;localhost:5901&apos;.
+
+
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ vncviewer viewer localhost:5900
+Bad argument &apos;localhost:5900&apos;.
+
+<font color="#55FF55"><b>tim@ub20srv</b></font>:<font color="#5555FF"><b>~</b></font>$ 
+
+
+
+======================================================================================
+миникуб запускается, но  vncviewer не может подключиться к порту 
+
+
+======================================================================================
+
+
+
+
+
+
+
+
+</pre>
